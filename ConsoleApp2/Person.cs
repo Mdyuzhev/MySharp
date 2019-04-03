@@ -2,6 +2,7 @@ namespace ConsoleApp2
 {
     public class Person
     {
+        private string name;
         private int age;
         private string address;
 
@@ -11,7 +12,7 @@ namespace ConsoleApp2
 
         public Person(string name, int age, string address)
         {
-            this.Name = name;
+            this.name = name;
             this.age = age;
             this.address = address;
         }

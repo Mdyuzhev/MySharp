@@ -1,21 +1,19 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
     class Program : Person
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-
-            /*var newPerson = new Person("Misha", 32, "Moscow");
+            var newPerson = new Person("Misha", 32, "Moscow");
             print(newPerson.Name);
-            print(newPerson.Age.ToString());*/
-            Randomaizer();
+            print(newPerson.Age);
+            print(newPerson.Address);
 
+            Randomaizer();
+            RndList();
         }
 
         private static void Write1()
@@ -31,16 +29,16 @@ namespace ConsoleApp2
         private static void calc()
         {
             int num1, num2, age;
-            Console.WriteLine("введите первое число");
-            num1 = Convert.ToInt32(Console.ReadLine());
+            print("введите первое число");
+            num1 = ReadLine();
 
-            Console.WriteLine("\nВведите второе число");
-            num2 = Convert.ToInt32(Console.ReadLine());
+            print("\nВведите второе число");
+            num2 = ReadLine();
 
-            Console.WriteLine($"\nСумма двух сисел равна: {num1 + num2}");
+            print($"\nСумма двух сисел равна: {num1 + num2}");
 
-            Console.WriteLine("Введите свой возраст");
-            age = Convert.ToInt32(Console.ReadLine());
+            print("Введите свой возраст");
+            age = ReadLine();
 
             if (age < 18)
             {
@@ -61,33 +59,53 @@ namespace ConsoleApp2
             Console.ReadKey(true);
         }
 
-        private static void print(string text)
+        private static int ReadLine()
         {
-            Console.WriteLine(text);
+            return Convert.ToInt32(Console.ReadLine());
         }
+
+        private static void print(object text) => Console.WriteLine(text);
+
 
         private static void Randomaizer()
         {
             var rndNum = new Random();
             var num = rndNum.Next(1, 30);
-            print(num.ToString());
+            print(num);
             print(num % 2 == 0 ? "Четное" : "Нечетное");
 
             for (var i = 0; i < num; i++)
             {
                 print("Привет");
             }
-            
-            int [] array = new int[10];
+
+            int[] array = new int[10];
 
             for (int i = 0; i < array.Length; i++)
             {
                 var num1 = rndNum.Next(1, 30);
                 array[i] = num1;
             }
+
             foreach (var t in array)
             {
-                print(t.ToString());
+                print(t);
+            }
+        }
+
+        private static void RndList()
+        {
+            List<int> myList = new List<int>();
+            var rndNum = new Random();
+
+            for (int i = 0; i < 20; i++)
+            {
+                myList.Add(rndNum.Next(1, 30));
+            }
+
+            foreach (var t in myList)
+            {
+                print(t);
             }
         }
     }
